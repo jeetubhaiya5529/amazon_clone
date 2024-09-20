@@ -1,6 +1,7 @@
 // IMPORTS FROM PACKAGES
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // IMPORTS FROM OTHER FILES
 const authRouter = require('./routes/auth');
@@ -13,6 +14,11 @@ const DB = "mongodb+srv://jkay5529:%23Jkay5529@cluster0.qv6m2.mongodb.net/?retry
 // MIDDLEWARE
 app.use(express.json());
 app.use(authRouter);
+app.use(cors({
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // CONNECTIONS
 mongoose.connect(DB).then(() => {
@@ -21,6 +27,6 @@ mongoose.connect(DB).then(() => {
     console.log(e);
 });
 
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
     console.log(`Connected at Port ${PORT}`);
 });
