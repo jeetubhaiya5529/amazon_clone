@@ -5,6 +5,7 @@ const cors = require('cors');
 
 // IMPORTS FROM OTHER FILES
 const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
 
 // INIT
 const PORT = 3000;
@@ -19,6 +20,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.use(adminRouter);
 
 // CONNECTIONS
 mongoose.connect(DB).then(() => {

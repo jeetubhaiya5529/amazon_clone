@@ -14,31 +14,43 @@ class _TopCategoriesState extends State<TopCategories> {
     return SizedBox(
       height: 60,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemExtent: 75,
-          itemCount: GlobalVariables.categoryImages.length,
-          itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(50),
-                      child: Image.asset(
-                        GlobalVariables.categoryImages[index]['images']!,
-                        fit: BoxFit.cover,
-                        height: 40,
-                        width: 40,
-                      )),
+        scrollDirection: Axis.horizontal,
+        itemExtent: 85,
+        itemCount: GlobalVariables.categoryImages.length,
+        itemBuilder: (context, index) {
+          final category = GlobalVariables.categoryImages[index];
+          final image = category['image'];
+          final title = category['title'];
+
+          if (image == null || title == null) {
+            return const SizedBox.shrink();
+          }
+
+          return Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                    height: 40,
+                    width: 40,
+                  ),
                 ),
-                Text(
-                  GlobalVariables.categoryImages[index]['title']!,
-                  style: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w400),
+              ),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
                 ),
-              ],
-            );
-          }),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }

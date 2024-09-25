@@ -81,25 +81,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             )),
-        body: const Column(
-          children: [
-            AddressBox(),
-            SizedBox(
-              height: 10,
-            ),
-            TopCategories(),
-            SizedBox(
-              height: 10,
-            ),
-            CarouselImage(),
-            SizedBox(
-              height: 5,
-            ),
-            DealOfDay(),
-            SizedBox(
-              height: 10,
-            ),
-          ],
+        body: const SingleChildScrollView(
+          child: Column(
+            children: [
+              AddressBox(),
+              SizedBox(
+                height: 10,
+              ),
+              TopCategories(),
+              SizedBox(
+                height: 10,
+              ),
+              CarouselImage(),
+              SizedBox(
+                height: 5,
+              ),
+              DealOfDay(),
+              SizedBox(
+                height: 10,
+              ),
+            ],
+          ),
         ));
   }
 }
