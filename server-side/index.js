@@ -7,6 +7,7 @@ const cors = require('cors');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
 const productRouter = require('./routes/product');
+const userRouter = require('./routes/user');
 
 // INIT
 const PORT = 3000;
@@ -23,6 +24,7 @@ app.use(cors({
 }));
 app.use(adminRouter);
 app.use(productRouter);
+app.use(userRouter);
 
 // CONNECTIONS
 mongoose.connect(DB).then(() => {
