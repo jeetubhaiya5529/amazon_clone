@@ -3,6 +3,7 @@ const userRouter = express.Router();
 const auth = require('../middlewares/auth');
 const { Product } = require("../models/product");
 const User = require("../models/user");
+const Order = require("../models/order");
 
 // Add Product to cart
 userRouter.post('/api/add-to-cart', auth, async(req, res) => {
@@ -103,6 +104,16 @@ userRouter.post('/api/order', auth, async (req, res) => {
         res.json(order);
     } catch (e) {
        res.status(500).json({error: e.message}); 
+    }
+});
+
+// get orders API
+userRouter.get('/api/order/me', auth, async (req, res) => {
+    try {
+        const orders = await Order.find({ userId: req.user });
+        res.json(orders);
+    } catch (e) {
+        res.status(500).json({error: e.message});
     }
 });
 
