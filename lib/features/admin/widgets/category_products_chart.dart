@@ -6,6 +6,8 @@ class CategoryProductChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SfSparkBarChart();
+    return SfSparkBarChart(
+      data: [],
+    );
   }
 }

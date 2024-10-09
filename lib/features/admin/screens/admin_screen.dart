@@ -1,4 +1,5 @@
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/account/services/account_services.dart';
 import 'package:amazon_clone/features/admin/screens/analytics_screen.dart';
 import 'package:amazon_clone/features/admin/screens/orders_screen.dart';
 import 'package:amazon_clone/features/admin/screens/posts_screen.dart';
@@ -13,6 +14,7 @@ class AdminScreen extends StatefulWidget {
 }
 
 class _AdminScreenState extends State<AdminScreen> {
+  final AccountServices accountServices = AccountServices();
   int _page = 0;
   double bottoBarWidth = 42;
   double bottomBarBorderWidth = 5;
@@ -51,10 +53,13 @@ class _AdminScreenState extends State<AdminScreen> {
                     color: Colors.black,
                   ),
                 ),
-                const Text(
-                  'Admin',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                )
+                IconButton(
+                    onPressed: () => accountServices.logOut(context),
+                    icon: const Icon(Icons.logout))
+                // const Text(
+                //   'Admin',
+                //   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                // ),
               ],
             ),
           )),
