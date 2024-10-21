@@ -58,5 +58,3 @@ Welcome to the Amazon Clone project! This application is designed to replicate t
    git clone https://github.com/jeetubhaiya5529/amazon_clone.git
    cd amazon-clone
 
-## Screenshots
-
