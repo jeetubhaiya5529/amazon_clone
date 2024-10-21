@@ -1,6 +1,7 @@
 import 'package:amazon_clone/common/widgets/loader.dart';
 import 'package:amazon_clone/features/admin/model/sales.dart';
 import 'package:amazon_clone/features/admin/services/admin_services.dart';
+import 'package:amazon_clone/features/admin/widgets/category_products_chart.dart';
 import 'package:flutter/cupertino.dart';
 
 class AnalyticsScreen extends StatefulWidget {
@@ -38,7 +39,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 '\$$totalSales',
                 style:
                     const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              )
+              ),
+              const CategoryProductChart()
             ],
           );
   }

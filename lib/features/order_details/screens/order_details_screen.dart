@@ -208,7 +208,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     steps: [
                       Step(
                           title: const Text('Picked Up'),
-                          content: const Text('Your order is accepted'),
+                          content: const Text('Your order is Placed'),
                           isActive: currentStep > 0,
                           state: currentStep > 0
                               ? StepState.complete
@@ -221,10 +221,17 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                               ? StepState.complete
                               : StepState.indexed),
                       Step(
-                          title: const Text('Delivered'),
-                          content: const Text('Your order is Delivered'),
+                          title: const Text('Out for Delivery'),
+                          content: const Text('Your order is on the way'),
                           isActive: currentStep >= 2,
                           state: currentStep >= 2
+                              ? StepState.complete
+                              : StepState.indexed),
+                      Step(
+                          title: const Text('Delivered'),
+                          content: const Text('Your order is Delivered'),
+                          isActive: currentStep >= 3,
+                          state: currentStep >= 3
                               ? StepState.complete
                               : StepState.indexed)
                     ]),

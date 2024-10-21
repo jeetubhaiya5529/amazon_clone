@@ -32,7 +32,7 @@ class Order {
       'userId': userId,
       'orderedAt': orderedAt,
       'status': status,
-      'totalPrice': totalPrice
+      'totalPrice': totalPrice,
     };
   }
 
@@ -49,7 +49,7 @@ class Order {
       userId: map['userId'] as String,
       orderedAt: map['orderedAt'] as int,
       status: map['status'] as int,
-      totalPrice: map['totalPrice'] as double,
+      totalPrice: map['totalPrice']?.toDouble() ?? 0.0,
     );
   }
 

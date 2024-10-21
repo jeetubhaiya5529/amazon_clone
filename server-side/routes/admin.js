@@ -2,6 +2,7 @@ const express = require('express');
 const adminRouter = express.Router();
 const admin = require('../middlewares/admin');
 const { Product } = require('../models/product');
+const Order = require('../models/order');
 
 // Add Product
 adminRouter.post('/admin/add-product', admin, async(req, res) => {
@@ -53,6 +54,7 @@ adminRouter.get('/admin/get-orders', admin, async (req, res) => {
     }
 });
 
+// Change order status
 adminRouter.post('/admin/change-order-status', admin, async (req, res) => {
     try {
         const {id, status} = req.body;
@@ -65,6 +67,7 @@ adminRouter.post('/admin/change-order-status', admin, async (req, res) => {
     }
 });
 
+// Analytics
 adminRouter.get('/admin/analytics', admin, async (req, res) =>  {
     try {
         const orders = await Order.find({});
