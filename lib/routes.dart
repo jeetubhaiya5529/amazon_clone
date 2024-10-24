@@ -17,8 +17,12 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
           settings: routeSettings, builder: (_) => const AuthScreen());
     case HomeScreen.routeName:
+      var id = routeSettings.arguments as String;
       return MaterialPageRoute(
-          settings: routeSettings, builder: (_) => const HomeScreen());
+          settings: routeSettings,
+          builder: (_) => HomeScreen(
+                id: id,
+              ));
     case BottomBar.routeName:
       return MaterialPageRoute(
           settings: routeSettings, builder: (_) => const BottomBar());

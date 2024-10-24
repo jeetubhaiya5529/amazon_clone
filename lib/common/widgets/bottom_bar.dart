@@ -28,7 +28,9 @@ class _BottomBarState extends State<BottomBar> {
   }
 
   List<Widget> pages = [
-    const HomeScreen(),
+    const HomeScreen(
+      id: '111',
+    ),
     const AccountScreen(),
     const CartScreen()
   ];
@@ -84,8 +86,13 @@ class _BottomBarState extends State<BottomBar> {
                               width: bottomBarBorderWidth))),
                   child: badges.Badge(
                       position: badges.BadgePosition.topEnd(top: -12, end: 0),
-                      badgeContent: Text(userCartLen.toString(), style: const TextStyle(color: Colors.white),),
-                      badgeStyle: const badges.BadgeStyle(elevation: 0,),
+                      badgeContent: Text(
+                        userCartLen.toString(),
+                        style: const TextStyle(color: Colors.white),
+                      ),
+                      badgeStyle: const badges.BadgeStyle(
+                        elevation: 0,
+                      ),
                       child: const Icon(CupertinoIcons.cart)),
                 ),
                 label: ''),
